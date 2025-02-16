@@ -1,0 +1,49 @@
+name: Share Artifact - ASCII
+
+on: push
+
+jobs:
+    build_ascii_job_1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Installing cowsay
+          run: sudo apt-get install cowsay -y
+          
+        - name: Execute cowsay  cmd
+          run: cowsay -f dragon "Run for cover" > dragon.txt
+        # using the action upload artifact
+        - name: Uploading Artifact
+          uses: actions/upload-artifact@v3
+          with:
+            name: dragon-code-text
+            path: dragon.txt
+
+    
+    test_ascii_job_2:
+        needs: build_ascii_job_1
+        runs-on: ubuntu-latest
+        steps:
+        - name: Downloading the artifact
+          uses: actions/download-artifact@v3
+          with:
+             name: dragon-code-text
+
+        - name: Outputting the text
+          run: grep -i "dragon" dragon.txt
+          
+          
+    deploy_ascii_job_3:
+        needs: test_ascii_job_2
+        runs-on: ubuntu-latest
+        steps:
+
+        - name: Downloading the artifact
+          uses: actions/download-artifact@v3
+          with:
+             name: dragon-code-text    
+             
+        - name: Outputting the file dragon.txt and sleeping
+          run: |
+            cat dragon.txt
+            echo "Deploying the ascii art......"
+            sleep 30
