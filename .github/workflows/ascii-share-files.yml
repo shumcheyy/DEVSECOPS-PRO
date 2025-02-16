@@ -28,8 +28,8 @@ jobs:
           with:
              name: dragon-code-text
 
-        - name: Outputting the text
-          run: grep -i "dragon" dragon.txt
+        - name: Checking if artifact is download
+          run: ls -al
           
           
     deploy_ascii_job_3:
