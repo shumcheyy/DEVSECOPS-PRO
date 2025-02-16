@@ -1,15 +1,35 @@
-name: Ascii Artwork Print
+name: Ascii Artwork Print - Multiple Jobs
 
 on: push
 
 jobs:
-    ascii_job:
+    build_ascii_job:
         runs-on: ubuntu-latest
         steps:
-        - name: Github Checkout Action
-          uses: actions/checkout@v4
+        - name: Installing cowsay
+          run: sudo apt-get install cowsay -y
+          
+        - name: Execute cowsay  cmd
+          run: cowsay -f dragon "Run for cover" > dragon.txt
+        
+        - name: Sleep for 30 seconds
+          run: sleep 30
 
-        - name: Running ascii script
+    
+    test_ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Sleep for 10 seconds
+          run: sleep 10
+        - name: Outputting the text
+          run: grep -i "dragon" dragon.txt
+          
+          
+    deploy_ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Outputting the file dragon.txt and sleeping
           run: |
-             chmod +x script.sh
-             ./script.sh
+            cat dragon.txt
+            echo "Deploying the ascii art......"
+            sleep 30
