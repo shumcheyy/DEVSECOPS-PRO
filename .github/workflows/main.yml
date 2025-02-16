@@ -10,7 +10,7 @@ jobs:
           run: echo "My First Github Action msg"
 
         - name: List Files
-          run: ls
+          run: ls ..
 
         - name: Read File
-          run: cat app.py
+          run: cat README.md
