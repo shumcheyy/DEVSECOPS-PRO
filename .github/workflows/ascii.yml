@@ -9,17 +9,7 @@ jobs:
         - name: Github Checkout Action
           uses: actions/checkout@v4
 
-        - name: Welcome message
-          run: echo "This is to print ascii using cowsay"
-
-        - name: Install Cowsay for ASCII artwork
-          run: sudo apt-get install cowsay -y
-
-        - name: Using Cowsay
-          run: cowsay -f dragon "Run for cover...Dragon is here" > drag.txt
-
-        - name: Test if file exists
-          run: cat drag.txt
-
-        - name: Checkout repo files
-          run: ls -ll
+        - name: Running ascii script
+          run: |
+             chmod +x script.sh
+             ./script.sh
