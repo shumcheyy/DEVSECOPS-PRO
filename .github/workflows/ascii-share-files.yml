@@ -13,7 +13,7 @@ jobs:
           run: cowsay -f dragon "Run for cover" > dragon.txt
         # using the action upload artifact
         - name: Uploading Artifact
-          uses: actions/upload-artifact@v3
+          uses: actions/upload-artifact@v4
           with:
             name: dragon-code-text
             path: dragon.txt
@@ -24,7 +24,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Downloading the artifact
-          uses: actions/download-artifact@v3
+          uses: actions/download-artifact@v4
           with:
              name: dragon-code-text
 
@@ -38,10 +38,10 @@ jobs:
         steps:
 
         - name: Downloading the artifact
-          uses: actions/download-artifact@v3
+          uses: actions/download-artifact@v4
           with:
              name: dragon-code-text    
-             
+
         - name: Outputting the file dragon.txt and sleeping
           run: |
             cat dragon.txt
