@@ -7,10 +7,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Welcome message
-          run: echo "My First Github Action msg"
+          run: echo "My First Github Action mssg"
 
         - name: List Files
           run: ls ..
 
         - name: Read File
-          run: cat README.md
+          run: cat ../README.md
