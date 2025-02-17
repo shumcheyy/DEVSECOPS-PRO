@@ -20,4 +20,4 @@ jobs:
           run: docker info
 
         - name: Docker on Ubuntu
-          run: docker run
+          run: docker run hello-world
