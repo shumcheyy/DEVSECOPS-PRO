@@ -1,0 +1,23 @@
+name: Learninx Git Matrix
+on: workflow_dispatch
+
+jobs:
+    docker_on_ubuntu_1:
+        runs-on: ubuntu-latest
+        steps:
+
+        - name: Docker info
+          run: docker info
+
+        - name: Docker on Ubuntu
+          run: docker run hello-world
+
+    docker_on_ubuntu_2:
+        runs-on: ubuntu-latest
+        steps:
+
+        - name: Docker info
+          run: docker info
+
+        - name: Docker on Ubuntu
+          run: docker run
