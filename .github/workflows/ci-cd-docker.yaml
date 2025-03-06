@@ -1,9 +1,10 @@
-name: Devsecops-CI/CD
+name: Devsecops-CI/CD-Docker
 on:
     push:
         branches: [main]
     pull_request:
         branches: [main]
+    
 
 jobs:
     build-and-run:
